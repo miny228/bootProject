@@ -354,12 +354,18 @@
 		font-size:12px;
 	}
 	form[name='joinForm'] li:first-child button, 
-	form[name='joinForm'] li:nth-child(7) button {
+	form[name='joinForm'] li:nth-child(7) button,
+	form[name='joinForm'] li:nth-child(2) button {
 		border:1px solid #ccc;
 		border-radius:5px;
 		background-color:#ccc;
 		color:#000;
 	}
+	
+	form[name='joinForm'] li:nth-child(2) button{
+		margin-left:6px;
+	}
+	
 	form[name='joinForm']  li:nth-child(3) span {
 		font-size:11px;
 		display:inline-block;

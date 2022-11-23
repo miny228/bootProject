@@ -68,7 +68,7 @@
 				</li>
 				<li>
 					<label>비밀번호</label>
-					<input type="password" name="pass" id="pass"><button type="button" id="btn">btn</button>
+					<input type="password" name="pass" id="pass"><button type="button" class="btn_style" id="btn">보기</button>
 				</li>
 				<li>
 					<label>비밀번호 확인</label>
