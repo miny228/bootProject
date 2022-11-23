@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.springboot.mycgv.mapper.NoticeMapper">
+	
+	<update id="getHits" parameterType="java.lang.String">
+		update cgv_notice set nhits=nhits+1 where nid=#{nid}
+	</update>
+		
+	<delete id="getDelete" parameterType="com.springboot.mycgv.dto.NoticeDto">
+		delete from cgv_notice where nid=#{nid}
+	</delete>
+		
+	<update id="getUpdate" parameterType="com.springboot.mycgv.dto.NoticeDto">
+		update cgv_notice set ntitle=#{ntitle}, ncontent=#{ncontent}, nfile=#{nfile}, nsfile=#{nsfile}
+			 where nid=#{nid}
+	</update>
+	
+	<select id="getContent" parameterType="java.lang.String"
+							resultType="com.springboot.mycgv.dto.NoticeDto">
+		select nid, ntitle, ncontent, nhits, ndate, nfile, nsfile 
+			from cgv_notice where nid=#{nid}
+	</select>
+	
+	<insert id="getWrite" parameterType="com.springboot.mycgv.dto.NoticeDto">
+			insert into cgv_notice values
+				('n_'||sequ_cgv_notice.nextval, #{ntitle}, #{ncontent}, #{nfile}, #{nsfile}, 0, sysdate )
+	</insert> 		
+	
+	<select id="getList" resultType="com.springboot.mycgv.dto.NoticeDto"
+		parameterType="com.springboot.mycgv.dto.PageDto">
+		select rno, nid, ntitle, ncontent, ndate, nhits from
+			(select rownum rno, nid, ntitle, ncontent, to_char(ndate,'yyyy-mm-dd') ndate, nhits from
+				(select nid, ntitle, ncontent, ndate, nhits from cgv_notice order by ndate desc))
+		where rno between #{startCount} and #{endCount}
+	</select>
+
+
+</mapper>
