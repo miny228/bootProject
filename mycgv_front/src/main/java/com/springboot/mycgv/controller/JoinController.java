@@ -1,10 +1,14 @@
 package com.springboot.mycgv.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springboot.mycgv.dto.MemberDto;
 import com.springboot.mycgv.service.MemberService;
@@ -16,25 +20,16 @@ public class JoinController {
 	private MemberService memberService;
 	
 	/**
-	 * joinCheck.do : 회원가입 처리
+	 * idCheck : 아이디체크
 	 */
-//	
-//	@RequestMapping(value="/joinCheck.do", method=RequestMethod.POST)
-//	public ModelAndView joinCheck(CgvMemberVO vo) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		int result = memberService.getJoinResult(vo);
-//		
-//		if(result == 1){
-//			mv.addObject("join_result","ok");
-//			mv.setViewName("/login/login");
-//		}else{
-//			mv.setViewName("error_page");
-//		}
-//		
-//		return mv;
-//	}
-//	
+	@ResponseBody
+	@GetMapping("/idcheck/{id}")
+	public String idcheck(@PathVariable(value="id") String id, HttpSession session, Model model) {
+			
+		return String.valueOf(memberService.idcheck(id));
+	}
+	
+	
 	/**
 	 * join.do : 회원가입 폼
 	 */

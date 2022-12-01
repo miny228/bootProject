@@ -34,8 +34,7 @@
 				<th>내용</th>
 				<td colspan="3">${vo.bcontent }<br><br>
 				<c:if test="${vo.bsfile != null }">
-					<img src="http://localhost:9000/upload/${vo.bsfile }"
-						width="50%">
+					<img src="http://localhost:9000/upload/${vo.bsfile }" width="50%">
 				</c:if>
 				<br><br></td>
 			</tr>

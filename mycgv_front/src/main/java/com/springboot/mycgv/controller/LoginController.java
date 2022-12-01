@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.mycgv.dto.MemberDto;
@@ -17,7 +18,7 @@ public class LoginController {
 	@Autowired
 	private MemberService memberService;
 	
-
+	
 	/**
 	 * logout : 로그아웃
 	 */

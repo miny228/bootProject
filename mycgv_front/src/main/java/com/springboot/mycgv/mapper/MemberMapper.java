@@ -10,7 +10,7 @@ public interface MemberMapper {
 	
 	int getLogin(MemberDto memberDto);
 	int getInsert(MemberDto memberDto);
-	
+	int idcheck(String id);
 	
 }
 

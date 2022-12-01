@@ -12,6 +12,12 @@ public class MemberService {
 	@Autowired
 	private MemberMapper memberDao;
 	
+	
+	public int idcheck(String id) {
+		return memberDao.idcheck(id);
+	}
+	
+	
 	public int getLogin(MemberDto memberDto) {
 		return memberDao.getLogin(memberDto);
 	}
