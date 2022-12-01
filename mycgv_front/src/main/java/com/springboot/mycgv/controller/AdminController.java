@@ -19,7 +19,7 @@ import com.springboot.mycgv.service.PageService;
 
 @Controller
 public class AdminController {
-
+ 
 	@Autowired
 	private PageService pageService;
 	
